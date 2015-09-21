@@ -1,0 +1,10 @@
+{
+  "name": "jiwei",
+  "version": "1.0.0",
+  "description": "frontend pages of scaujiwei",
+  "dependencies": {
+    "angularjs": "~1.2.20",
+    "jquery": "~2.1.1",
+    "requirejs": "~2.1.14"
+  }
+}

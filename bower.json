@@ -1,0 +1,21 @@
+{
+  "name": "jiwei",
+  "version": "0.0.0",
+  "homepage": "https://github.com/x-cold/jiwei-frontend",
+  "authors": [
+    "x-cold <lxstart@outlook.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "angularjs#~1.4.6",
+    "jquery": "~2.1.4",
+    "requirejs": "~2.1.20"
+  }
+}
