@@ -1,11 +1,19 @@
 requirejs.config({
-    baseUrl: '/jiwei/public/js',
+    baseUrl: '../public/js',
     paths: {
-        app: 'app',
         jquery: 'lib/jquery/jquery',
-        angular: 'lib/angularjs/angular'
+        angular: 'lib/angular/angular',
+        app: 'app'
     },
     shim: {
-        angular: {exports: 'angular'}
-    }
+        angular: {
+            exports: 'angular',
+            deps: ['jquery']
+        }
+    },
+    waitSeconds: 60
 });
+
+requirejs([
+    'angular'
+]);
