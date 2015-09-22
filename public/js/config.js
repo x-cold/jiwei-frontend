@@ -13,7 +13,6 @@ requirejs.config({
     },
     waitSeconds: 60
 });
-
 requirejs([
     'angular'
 ]);
