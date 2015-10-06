@@ -8,6 +8,6 @@ _Author: xcold [Blog](http://lxstart.net)_
 
 + 前端自动化工具：gruntfile
 
-+ 前端MVC：angularjs
-
 + 依赖性管理：require.js
+
++ css：stylus
