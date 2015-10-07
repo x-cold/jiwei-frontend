@@ -1,6 +1,7 @@
 var fs = require('fs');
 // 定义目标文件、源入口/路径
-var dist = './public/style.css';
+var dist = '../public/css/jiwei.css';
+var __dirname = '.';
 var main = __dirname + '/src/common.styl';
 var paths = [
 	__dirname, __dirname + '/src'
@@ -9,7 +10,7 @@ var paths = [
 var stylus = require('stylus'),
 	str = require("fs").readFileSync(main, 'utf8');
 
-module.exports.run = function() {
+var run = (function() {
 	// 设置入口文件、源路径
 	// 编译stylus文件
 	stylus(str)
@@ -24,4 +25,4 @@ module.exports.run = function() {
 					console.log("stylus编译成功！");
 			});
 		});
-}
+})();

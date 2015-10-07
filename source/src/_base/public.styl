@@ -1,0 +1,209 @@
+//public method
+absolute-center(width, height = width)
+  width width
+  height height
+  position absolute
+  top 50%
+  left 50%
+  margin-top width * -0.5
+  margin-left height * -0.5
+
+font-smoothing()
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+
+/*! Public style */
+* 
+  -webkit-margin-before 0
+  -webkit-margin-after 0
+
+body
+  background color-background
+  font-family font-default
+  font-size font-size
+  color color-font
+  line-height line-height
+
+small
+  font-size 80%
+
+sub,sup 
+  font-size 75%
+  line-height 0
+  position relative
+  vertical-align baseline
+
+sup
+  top -0.5em
+  padding-left 0.3em
+
+sub
+  bottom -0.25em
+
+a
+  text-decoration none
+  color color-font
+  &:hover,&:focus
+    outline 0
+    text-decoration none
+    transition color .25s,background .5s
+  &:hover:before
+    transition color .25s,background .5s
+
+input:focus
+  outline none
+
+input, button
+  margin: 0
+  padding: 0
+  &::-moz-focus-inner
+    border: 0
+    padding: 0
+
+h1
+  font-size 1.5em
+
+.fa
+  display inline-block
+  font-family FontAwesome
+  font-style normal
+  font-weight normal
+  line-height 1
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+
+.clearfix
+  clearfix()
+
+::-webkit-input-placeholder { color:color-white; padding: 2px 0 0 4px;}
+::-moz-placeholder { color:color-white; padding: 2px 0 0 4px;} 
+:-ms-input-placeholder { color:color-white; padding: 2px 0 0 4px;}
+::-webkit-input-placeholder::before{font-family:font-icon-family;font-smoothing();content: "\f002";padding-right: 4px;}
+::-moz-placeholder:before{font-family:font-icon-family;font-smoothing();content: "\f002";padding-right: 4px;}
+:-ms-input-placeholder::before{font-family:font-icon-family;font-smoothing();content: "\f002";padding-right: 4px;}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration
+  -webkit-appearance none
+::-webkit-search-cancel-button:after 
+    font-family font-icon-family
+    font-smoothing()
+    content '\f00d'
+    color color-white
+    padding-right 4px 
+
+.clearafter
+  content "."
+  display block
+  height 0
+  visibility hidden
+  clear both
+
+.left,
+.alignleft
+  float left
+
+.right,
+.alignright
+  float right
+
+.hide
+  display none
+
+.section
+  text-align center
+  font 24px "Microsoft Yahei"
+  color #fff
+
+.tips
+  display block
+  width 100%
+  color #fff
+  font-size 12px
+
+.alert
+  z-index 9999
+  position absolute
+  bottom 2%
+  left 40%
+  margin 0 auto
+  padding 12px 32px
+  display block
+  box-sizing border-box
+  -moz-box-sizing border-box
+  -webkit-box-sizing border-box
+  width 20%
+  text-align center
+  font-size 14px
+  color #455e63
+  background #e2fbff
+
+/* tips */
+[data-tips]
+  position relative
+  text-decoration none
+
+[data-tips]:after,
+[data-tips]:before
+  position absolute
+  z-index 100
+  opacity 0
+
+[data-tips]:after
+  -moz-box-sizing border-box
+  -webkit-box-sizing border-box
+  box-sizing border-box
+  content attr(data-tips)
+  height 25px
+  line-height 25px
+  padding 0 10px
+  font-size 12px
+  text-align center
+  color #fff
+  background #222
+  border-radius 5px
+  text-shadow 0 0 5px #000
+  -moz-box-shadow 0 0 5px rgba(0, 0, 0, 0.3)
+  -webkit-box-shadow 0 0 5px rgba(0, 0, 0, 0.3)
+  box-shadow 0 0 5px rgba(0, 0, 0, 0.3)
+  white-space nowrap
+
+[data-tips]:hover:after,
+[data-tips]:hover:before
+  opacity 1
+  
+/*! css3 animate */
+.animated
+  animation-fill-mode both
+  animation-duration 1s
+
+@-webkit-keyframes fadeIn
+  0%
+    opacity 0
+  100%
+    opacity 1
+
+.fadeIn
+  animation-name fadeIn
+
+@keyframes fadeInDown
+  0%
+    opacity 0
+    transform translateY(-20px)
+  100% 
+    opacity 1
+    transform translateY(0)
+
+.fadeOut
+  animation-name fadeOut
+
+.text-center
+  text-align center
+
+.text-left
+  text-align left
+  text-indent 1.2em
+
+.text-right
+  text-align right
+  

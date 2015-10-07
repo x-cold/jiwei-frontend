@@ -1,10 +1,10 @@
 <!DOCTYPE>
-	<html lang="zh-ch" ng-app>
-	<meta charset="UTF-8"/>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width = device-width,initial-scale = 1"/>
-	<title>计算机维护队</title>
-	<meta name="author" content="计算机维护队">
+<html lang="zh-ch">
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width = device-width,initial-scale = 1"/>
+    <title>计算机维护队</title>
+    <meta name="author" content="计算机维护队">
     <meta name="keywords" content="计算机维护队,华农计算机维护队,华南农业大学">
     <meta name="description" content="计算机维护队，华农计算机维护队，来自于华南农业大学的计算机维护队是一群负责解决全校师生计算机故障的志愿者团队。">
     <!--<link rel="icon" href="/favicon.ico">-->
@@ -19,8 +19,16 @@
               alert("对不起，您的浏览器不支持我们的网站，请升级浏览器。谢谢合作");
         </script>
     <![endif]-->
-    <script src="../public/js/lib/requirejs/require.js"
-	        data-main="../public/js/config.js"></script>
-</html>
-<body>
-</body>
+    <link rel="stylesheet" type="text/css" href="../public/css/jiwei.css">
+    <script src="../public/requirejs/require.js"
+            data-main="../public/js/config.js"></script>
+    </head>
+    <body>
+        <!-- header block -->
+        <header id="header" class="header header-fixed"></header>
+        <!-- main block -->
+        <section id="wraper"></section>
+        <!-- footer block -->
+        <footer id="footer" class="footer"></footer>
+    </body>
+<html>
