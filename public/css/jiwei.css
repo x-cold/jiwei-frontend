@@ -394,6 +394,13 @@ input[type="search"]::-webkit-search-decoration {
   background: #1bbc9b !important;
   color: #fff !important;
 }
+.blank-block {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 200px;
+  height: 600px;
+}
 footer {
   z-index: 1;
   margin-top: 1em;
