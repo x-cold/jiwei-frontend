@@ -1,28 +1,26 @@
 /* footer */
 footer
+  z-index 1
   margin-top 1em
   background color-footer
   padding 0.5em 2%
 
 #footer
-  width 95%
   margin 4px auto 0;
+  box-sizing(border-box)
+  width 100%
   overflow hidden
   position relative
   .line
     width 100%
-    height 14em
+    height 11em
     margin 0 auto
-    @media tablet
+    @media mini
       display none
-    @media mini 
-      width 10em
-      float left
-      position relative
     span
       display block
       width 0.5em
-      height 6.25em
+      height 3.25em
       border-right 0.125em solid color-white
       margin 0 auto
       @media mini
@@ -34,10 +32,8 @@ footer
   width w=(110/16)em
   height w
   margin 0 auto
-  if dataURI
-    background no-repeat url(author-img-data) left top
-  else
-    background no-repeat url(root+author-img) left top 
+  background no-repeat url(../img/logo.jpg) left top
+
   background-size w w
   border-radius (w/2)
   transition transform 2s ease-out
@@ -103,10 +99,7 @@ footer
       content "\f08c"
  
 .copyright
-  if ShowCustomFont
-    font-smoothing()
-  else
-    font-size 0.6em
+  font-size 0.8em
   width 100%
   color color-white
   text-align center

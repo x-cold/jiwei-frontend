@@ -11,11 +11,13 @@
   font-family: "FontAwesome";
   font-style: normal;
   font-weight: normal;
-  src: url("../font/fontawesome-webfont.eot?v=#4.0.3");
-  src: url("../font/fontawesome-webfont.eot?#iefix&v=#4.0.3") format("embedded-opentype"), url("../font/fontawesome-webfont.woff?v=#4.0.3") format("woff"), url("../font/fontawesome-webfont.ttf?v=#4.0.3") format("truetype"), url("../font/fontawesome-webfont.svg#fontawesomeregular?v=#4.0.3") format("svg");
+  src: url("../font/fontawesome-webfont.eot?v=#3.2.1");
+  src: url("../font/fontawesome-webfont.eot?#iefix&v=#3.2.1") format("embedded-opentype"), url("../font/fontawesome-webfont.woff?v=#3.2.1") format("woff"), url("../font/fontawesome-webfont.ttf?v=#3.2.1") format("truetype"), url("../font/fontawesome-webfont.svg#fontawesomeregular?v=#3.2.1") format("svg");
 }
 /* Public style */
 * {
+  margin: 0;
+  padding: 0;
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
 }
@@ -126,7 +128,8 @@ input[type="search"]::-webkit-search-decoration {
   color: #fff;
   padding-right: 4px;
 }
-.clearafter {
+.clearfix,
+.clear:after {
   content: ".";
   display: block;
   height: 0;
@@ -181,10 +184,10 @@ input[type="search"]::-webkit-search-decoration {
 [data-tips]:after,
 [data-tips]:before {
   position: absolute;
-  z-index: 100;
   opacity: 0;
 }
 [data-tips]:after {
+  z-index: 100;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -291,31 +294,46 @@ input[type="search"]::-webkit-search-decoration {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  padding: 0 2%;
   width: 100%;
-  height: 50px;
+  height: auto;
+  opacity: 0.8;
   background: rgba(255,255,255,0.8);
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #dedede;
+}
+@media only screen and (min-width: 1560px) {
+  .header {
+    padding: 0 12%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .header {
+    padding: 0 8%;
+  }
+}
+.header:after {
+  content: ".";
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both;
 }
 .logo {
   display: block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  width: 120px;
-  height: 42px;
-  background: url("../images/logo.png") no-repeat center center;
-}
-@media only screen and (min-width: 768px) {
-  .logo {
-    width: 100px;
-  }
+  width: 48px;
+  height: 48px;
+  background: url("../img/logo.png") no-repeat center center;
+  background-size: contain;
 }
 .nav-list {
   display: block;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  height: 48px;
+  height: 44px;
   font-size: 14px;
 }
 .nav-list li {
@@ -324,8 +342,8 @@ input[type="search"]::-webkit-search-decoration {
 .nav-list a {
   position: relative;
   display: block;
-  margin: 7px 4px;
-  padding: 4px 12px;
+  margin: 8px 4px;
+  padding: 3px 12px;
   color: #1bbc9b;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
@@ -369,42 +387,42 @@ input[type="search"]::-webkit-search-decoration {
   -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
   transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
 }
+.nav-list a i {
+  margin: 0 1px;
+}
 .active-link {
   background: #1bbc9b !important;
   color: #fff !important;
 }
 footer {
+  z-index: 1;
   margin-top: 1em;
-  background: #1f1f1f;
+  background: #2f2f2f;
   padding: 0.5em 2%;
 }
 #footer {
-  width: 95%;
   margin: 4px auto 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
   overflow: hidden;
   position: relative;
 }
 #footer .line {
   width: 100%;
-  height: 14em;
+  height: 11em;
   margin: 0 auto;
-}
-@media only screen and (min-width: 1024px) {
-  #footer .line {
-    display: none;
-  }
 }
 @media only screen and (min-width: 768px) {
   #footer .line {
-    width: 10em;
-    float: left;
-    position: relative;
+    display: none;
   }
 }
 #footer .line span {
   display: block;
   width: 0.5em;
-  height: 6.25em;
+  height: 3.25em;
   border-right: 0.125em solid #fff;
   margin: 0 auto;
 }
@@ -419,7 +437,7 @@ footer {
   width: 6.875em;
   height: 6.875em;
   margin: 0 auto;
-  background: no-repeat url("author-img-data") left top;
+  background: no-repeat url("../img/logo.jpg") left top;
   background-size: 6.875em 6.875em;
   -webkit-border-radius: 3.4375em;
   -moz-border-radius: 3.4375em;
@@ -513,8 +531,7 @@ footer {
   content: "\f08c";
 }
 .copyright {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-size: 0.8em;
   width: 100%;
   color: #fff;
   text-align: center;

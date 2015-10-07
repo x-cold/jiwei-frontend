@@ -11,9 +11,18 @@ absolute-center(width, height = width)
 font-smoothing()
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
-
+  
+clearfix()
+  content "."
+  display block
+  height 0
+  visibility hidden
+  clear both
+  
 /*! Public style */
-* 
+*
+  margin 0
+  padding 0
   -webkit-margin-before 0
   -webkit-margin-after 0
 
@@ -72,9 +81,6 @@ h1
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
 
-.clearfix
-  clearfix()
-
 ::-webkit-input-placeholder { color:color-white; padding: 2px 0 0 4px;}
 ::-moz-placeholder { color:color-white; padding: 2px 0 0 4px;} 
 :-ms-input-placeholder { color:color-white; padding: 2px 0 0 4px;}
@@ -92,12 +98,9 @@ input[type="search"]::-webkit-search-decoration
     color color-white
     padding-right 4px 
 
-.clearafter
-  content "."
-  display block
-  height 0
-  visibility hidden
-  clear both
+.clearfix,
+.clear:after
+  clearfix()
 
 .left,
 .alignleft
@@ -146,10 +149,10 @@ input[type="search"]::-webkit-search-decoration
 [data-tips]:after,
 [data-tips]:before
   position absolute
-  z-index 100
   opacity 0
 
 [data-tips]:after
+  z-index 100
   -moz-box-sizing border-box
   -webkit-box-sizing border-box
   box-sizing border-box

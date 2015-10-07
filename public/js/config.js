@@ -1,6 +1,6 @@
 require.config({
 	paths: {
-		jquery: '../jquery/dist/jquery.min'
+		jquery: './jquery/dist/jquery.min'
 	}
 });
 
