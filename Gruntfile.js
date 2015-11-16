@@ -1,6 +1,5 @@
 /*global module:false*/
 module.exports = function(grunt) {
-
   // Project configuration.
   grunt.initConfig({
     // Metadata.
@@ -30,56 +29,8 @@ module.exports = function(grunt) {
         dest: 'dist/<%= pkg.name %>.min.js'
       }
     },
-    jshint: {
-      options: {
-        curly: true,
-        eqeqeq: true,
-        immed: true,
-        latedef: true,
-        newcap: true,
-        noarg: true,
-        sub: true,
-        undef: true,
-        unused: true,
-        boss: true,
-        eqnull: true,
-        browser: true,
-        globals: {
-          jQuery: true
-        }
-      },
-      gruntfile: {
-        src: 'Gruntfile.js'
-      },
-      lib_test: {
-        src: ['lib/**/*.js', 'test/**/*.js']
-      }
-    },
-    qunit: {
-      files: ['test/**/*.html']
-    },
     watch: {
-      gruntfile: {
-        files: '<%= jshint.gruntfile.src %>',
-        tasks: ['jshint:gruntfile']
-      },
-      lib_test: {
-        files: '<%= jshint.lib_test.src %>',
-        tasks: ['jshint:lib_test', 'qunit']
-      }
-    },
-    bower: {
-      install: {
-        options: {
-          targetDir: './public/js/lib',
-          layout: 'byComponent',
-          install: true,
-          verbose: false,
-          cleanTargetDir: false,
-          cleanBowerDir: false,
-          bowerOptions: {}
-        }
-      }
+
     }
   });
 
@@ -90,7 +41,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-bower-task');
-  // Default task.
-  grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify', 'bower']);
 
+  // Default task.
+  grunt.registerTask('default',[ 'concat', 'uglify']);
 };
