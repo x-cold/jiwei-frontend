@@ -3,43 +3,44 @@
  */
 const koa = require('koa')
     ,path = require('path')
-    ,views = require('koa-views')
+    ,fs = require('fs')
     ,staticServer = require('koa-static')
     ,route = require('koa-route')
     ,convert = require('koa-convert')
     ,logger = require('koa-logger')
-    ,render = require('koa-ejs');
+    ,bodyParser = require('koa-bodyparser')
+    ,views = require('koa-render')
+    ,co = require('co');
 const routes = require('./router/index');
 var app = new koa();
-app.get = function (path, func) {
-    return app.use(route.get(path, func));
+app.get = function (url, func) {
+    return app.use(route.get(url, func));
 };
+app.post = function (url, func) {
+    return app.use(route.get(url, func));
+};
+app.all = function (url, func) {
+    return app.all(route.get(url, func));
+};
+
+// views engine
+app.use(convert(views('./views', {
+    html: 'underscore'
+})));
+app.use(bodyParser());
+
 // logger
 app.use(convert(logger()));
 
-// view engine
-render(app, {
-    root: path.join(__dirname, 'view'),
-    layout: 'template',
-    viewExt: 'html',
-    cache: false,
-    debug: true,
-    locals: locals,
-    filters: filters
-});
-app.use(convert(views('views', {
-    map: {
-        html: 'ejs'
-    }
-})));
-
 // static server
 app.use(convert(staticServer(__dirname + '/public')));
-app.use(route.get('/', routes(app)));
-
+//app.use(route.get('/', routes(app)));
+app.use(convert(function *(){
+    this.body = yield this.render('test');
+}));
 // error
 app.on('error', function(err, ctx) {
     log.error('server error', err, ctx);
-})
+});
 
 app.listen(3000);
