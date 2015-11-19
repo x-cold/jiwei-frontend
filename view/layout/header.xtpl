@@ -1,9 +1,8 @@
-<!-- header block -->
- <header id="header" class="header header-fixed">
+<header id="header" class="header header-fixed">
      <a class="logo left" href="http://www.scaujiwei.com"></a>
      <ul class="nav-list right">
-         <li><a class="active-link" href="/"><i class="icon-home"></i>Ê×Ò³</a></li>
-         <li data-tips="¼ÆÎ¬¼¼Êõ²©¿Í"><a href="http://www.scaujiwei.com" alt="¼ÆËã»úÎ¬»¤¶Ó¹Ù·½¼¼Êõ²©¿Í" target="_blank"><i class="icon-file-alt"></i>²©¿Í</a></li>
-         <li data-tips="½ô¼±¿ª·¢ÖÐ"><a href="#" ><i class="icon-star"></i>½éÉÜ</a></li>
+         <li><a class="active-link" href="/"><i class="icon-home"></i>é¦–é¡µ</a></li>
+         <li><a href="http://www.scaujiwei.com" alt="è®¡ç®—æœºç»´æŠ¤é˜Ÿå®˜æ–¹æŠ€æœ¯åšå®¢" target="_blank"><i class="icon-file-alt"></i>åšå®¢</a></li>
+         <li><a href="#" ><i class="icon-star"></i>ä»‹ç»</a></li>
      </ul>
- </header>
+</header>

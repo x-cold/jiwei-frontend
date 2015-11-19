@@ -1,10 +1,4 @@
-{{extend ("./layout/layout")}}
-{{#block ("head")}}
-    <style>
-
-    </style>
-{{/block}}
-
-{{#block ("body")}}
-    <p>计算机维护队欢迎您。</p>
+{{extend ('./layout/layout')}}
+{{# block ('body')}}
+<p>你可知道</p>
 {{/block}}

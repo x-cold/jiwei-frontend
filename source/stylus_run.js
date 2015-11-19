@@ -1,16 +1,16 @@
-var fs = require('fs');
 // 定义目标文件、源入口/路径
-var dist = '../public/css/jiwei.css';
+var fs =  require("fs");
+var dist = __dirname + '/../public/css/jiwei.css';
 var __dirname = '.';
-var main = __dirname + '/src/common.styl';
+var main = __dirname + '/source/src/common.styl';
 var paths = [
-	__dirname, __dirname + '/src'
+	__dirname, __dirname + '/source/src'
 ];
 
 var stylus = require('stylus'),
-	str = require("fs").readFileSync(main, 'utf8');
+	str = fs.readFileSync(main, 'utf8');
 
-var run = (function() {
+exports.run = function() {
 	// 设置入口文件、源路径
 	// 编译stylus文件
 	stylus(str)
@@ -25,4 +25,4 @@ var run = (function() {
 					console.log("stylus编译成功！");
 			});
 		});
-})();
+};

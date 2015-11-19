@@ -3,6 +3,6 @@
  */
 var controller = require('../controller/index');
 module.exports = function(app){
-    //Ê×Ò³
+    //index
     app.get('/',controller.index);
 };

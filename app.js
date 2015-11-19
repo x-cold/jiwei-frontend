@@ -1,22 +1,22 @@
 /**
  * Created by lxstart on 2015-11-17.
  */
-var convert = require('koa-convert')
+
 var debug = require('debug')('koa-demo');
 var koa = require('koa');
-//ÅäÖÃÎÄ¼ş
+//é…ç½®æ–‡ä»¶
 var config = require('./config/config');
 
 var app = koa();
 app.use(function *(next){
-    //config ×¢ÈëÖĞ¼ä¼ş£¬·½±ãµ÷ÓÃÅäÖÃĞÅÏ¢
+    //config æ³¨å…¥ä¸­é—´ä»¶ï¼Œæ–¹ä¾¿è°ƒç”¨é…ç½®ä¿¡æ¯
     if(!this.config){
         this.config = config;
     }
     yield next;
 });
 
-//log¼ÇÂ¼
+//logè®°å½•
 var Logger = require('mini-logger');
 var logger = Logger({
     dir: config.logDir,
@@ -29,43 +29,50 @@ app.context.logger = logger;
 var onerror = require('koa-onerror');
 onerror(app);
 
-//xtemplate¶ÔkoaµÄÊÊÅä
+//xtemplateå¯¹koaçš„é€‚é…
 var xtplApp = require('xtpl/lib/koa');
-//xtemplateÄ£°åäÖÈ¾
+//xtemplateæ¨¡æ¿æ¸²æŸ“
 xtplApp(app,{
-    //ÅäÖÃÄ£°åÄ¿Â¼
+    //é…ç½®æ¨¡æ¿ç›®å½•
     views: config.viewDir
 });
 
 var session = require('koa-session');
 app.use(session(app));
 
-//post body ½âÎö
+//post body è§£æ
 var bodyParser = require('koa-bodyparser');
 app.use(bodyParser());
-//Êı¾İĞ£Ñé
+//æ•°æ®æ ¡éªŒ
 var validator = require('koa-validator');
 app.use(validator());
-//¾²Ì¬ÎÄ¼ş
+
+// é™æ€æ–‡ä»¶
 var staticServer = require('koa-static');
 app.use((staticServer(__dirname + '/public')));
 
-//¾²Ì¬ÎÄ¼şcache
+//é™æ€æ–‡ä»¶cache
 var staticCache = require('koa-static-cache');
 var staticDir = config.staticDir;
 app.use(staticCache(staticDir+'/js'));
 app.use(staticCache(staticDir+'/css'));
 
-//Â·ÓÉ
+//è·¯ç”±
 var router = require('koa-router');
 app.use(router(app));
 
-//Ó¦ÓÃÂ·ÓÉ
+//åº”ç”¨è·¯ç”±
 var appRouter = require('./router/index');
 appRouter(app);
+
+// ç¼–è¯‘stylus
+var stylus = require('./source/stylus_run');
+stylus.run();
 
 app.listen(config.port);
 console.log('listening on port %s',config.port);
 
 module.exports = app;
+
+
 

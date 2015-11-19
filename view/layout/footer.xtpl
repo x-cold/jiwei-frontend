@@ -1,15 +1,12 @@
-<!-- footer block -->
 <footer id="footer" class="footer">
 	<div class="line">
 		<span></span>
 		<div class="author"></div>
 	</div>
-
 	<div class="social-font clearfix">
 	</div>
-
 	<p class="copyright">
-		Powered by 2012-2014级计维开发组 <br>
-		? 2015 <a href="http://jiwei.sinaapp.com" target="_blank" title="计算机维护队">计算机维护队</a>
+		Powered by 2012-2014绾ц缁村紑鍙戠粍 <br>
+		漏 2015 <a href="http://jiwei.sinaapp.com" target="_blank" title="璁＄畻鏈虹淮鎶ら槦">璁＄畻鏈虹淮鎶ら槦</a>
 	</p>
 </footer>

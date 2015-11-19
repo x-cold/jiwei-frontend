@@ -25,7 +25,7 @@
   box-sizing(border-box)
   width 48px
   height 48px
-  background url(../img/logo.png) no-repeat center center
+  background url(../img/logo.png) no-repeat auto auto
   background-size contain  
 
 .nav-list
@@ -45,6 +45,7 @@
     -webkit-transform translateZ(0)
     transform translateZ(0)
     transition: color 0.4s
+    border 1px solid color-theme
     box-shadow(0 0 1px rgba(0, 0, 0, 0))
     &:hover
       color #fff
@@ -77,5 +78,6 @@
       margin 0 1px;
  
 .active-link
+  border none
   background color-theme !important
   color #fff !important

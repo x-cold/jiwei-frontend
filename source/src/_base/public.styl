@@ -141,40 +141,6 @@ input[type="search"]::-webkit-search-decoration
   color #455e63
   background #e2fbff
 
-/* tips */
-[data-tips]
-  position relative
-  text-decoration none
-
-[data-tips]:after,
-[data-tips]:before
-  position absolute
-  opacity 0
-
-[data-tips]:after
-  z-index 100
-  -moz-box-sizing border-box
-  -webkit-box-sizing border-box
-  box-sizing border-box
-  content attr(data-tips)
-  height 25px
-  line-height 25px
-  padding 0 10px
-  font-size 12px
-  text-align center
-  color #fff
-  background #222
-  border-radius 5px
-  text-shadow 0 0 5px #000
-  -moz-box-shadow 0 0 5px rgba(0, 0, 0, 0.3)
-  -webkit-box-shadow 0 0 5px rgba(0, 0, 0, 0.3)
-  box-shadow 0 0 5px rgba(0, 0, 0, 0.3)
-  white-space nowrap
-
-[data-tips]:hover:after,
-[data-tips]:hover:before
-  opacity 1
-  
 /*! css3 animate */
 .animated
   animation-fill-mode both
