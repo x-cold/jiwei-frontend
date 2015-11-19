@@ -1,6 +1,7 @@
 /**
  * Created by lxstart on 2015-11-17.
  */
+var convert = require('koa-convert')
 var debug = require('debug')('koa-demo');
 var koa = require('koa');
 //配置文件
@@ -39,13 +40,15 @@ xtplApp(app,{
 var session = require('koa-session');
 app.use(session(app));
 
-
 //post body 解析
 var bodyParser = require('koa-bodyparser');
 app.use(bodyParser());
 //数据校验
 var validator = require('koa-validator');
 app.use(validator());
+//静态文件
+var staticServer = require('koa-static');
+app.use((staticServer(__dirname + '/public')));
 
 //静态文件cache
 var staticCache = require('koa-static-cache');

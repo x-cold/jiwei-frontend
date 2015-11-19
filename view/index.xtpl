@@ -1,5 +1,4 @@
 {{extend ("./layout/layout")}}
-
 {{#block ("head")}}
     <style>
 
@@ -7,5 +6,5 @@
 {{/block}}
 
 {{#block ("body")}}
-<p>这是个 koa 的测试页面</p>
+    <p>计算机维护队欢迎您。</p>
 {{/block}}
