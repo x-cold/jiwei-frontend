@@ -1,46 +1,68 @@
 /**
  * Created by lxstart on 2015-11-17.
  */
-const koa = require('koa')
-    ,path = require('path')
-    ,fs = require('fs')
-    ,staticServer = require('koa-static')
-    ,route = require('koa-route')
-    ,convert = require('koa-convert')
-    ,logger = require('koa-logger')
-    ,bodyParser = require('koa-bodyparser')
-    ,views = require('koa-render')
-    ,co = require('co');
-const routes = require('./router/index');
-var app = new koa();
-app.get = function (url, func) {
-    return app.use(route.get(url, func));
-};
-app.post = function (url, func) {
-    return app.use(route.get(url, func));
-};
-app.all = function (url, func) {
-    return app.all(route.get(url, func));
-};
+var debug = require('debug')('koa-demo');
+var koa = require('koa');
+//配置文件
+var config = require('./config/config');
 
-// views engine
-app.use(convert(views('./views', {
-    html: 'underscore'
-})));
-app.use(bodyParser());
-
-// logger
-app.use(convert(logger()));
-
-// static server
-app.use(convert(staticServer(__dirname + '/public')));
-//app.use(route.get('/', routes(app)));
-app.use(convert(function *(){
-    this.body = yield this.render('test');
-}));
-// error
-app.on('error', function(err, ctx) {
-    log.error('server error', err, ctx);
+var app = koa();
+app.use(function *(next){
+    //config 注入中间件，方便调用配置信息
+    if(!this.config){
+        this.config = config;
+    }
+    yield next;
 });
 
-app.listen(3000);
+//log记录
+var Logger = require('mini-logger');
+var logger = Logger({
+    dir: config.logDir,
+    format: 'YYYY-MM-DD-[{category}][.log]'
+});
+
+//router use : this.logger.error(new Error(''))
+app.context.logger = logger;
+
+var onerror = require('koa-onerror');
+onerror(app);
+
+//xtemplate对koa的适配
+var xtplApp = require('xtpl/lib/koa');
+//xtemplate模板渲染
+xtplApp(app,{
+    //配置模板目录
+    views: config.viewDir
+});
+
+var session = require('koa-session');
+app.use(session(app));
+
+
+//post body 解析
+var bodyParser = require('koa-bodyparser');
+app.use(bodyParser());
+//数据校验
+var validator = require('koa-validator');
+app.use(validator());
+
+//静态文件cache
+var staticCache = require('koa-static-cache');
+var staticDir = config.staticDir;
+app.use(staticCache(staticDir+'/js'));
+app.use(staticCache(staticDir+'/css'));
+
+//路由
+var router = require('koa-router');
+app.use(router(app));
+
+//应用路由
+var appRouter = require('./router/index');
+appRouter(app);
+
+app.listen(config.port);
+console.log('listening on port %s',config.port);
+
+module.exports = app;
+
