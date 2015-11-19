@@ -57,6 +57,10 @@ var staticDir = config.staticDir;
 app.use(staticCache(staticDir+'/js'));
 app.use(staticCache(staticDir+'/css'));
 
+//数据库
+var mongoose = require('mongoose');
+mongoose.connect(config.db.dbPath);
+
 //路由
 var router = require('koa-router');
 app.use(router(app));
@@ -64,6 +68,8 @@ app.use(router(app));
 //应用路由
 var appRouter = require('./router/index');
 appRouter(app);
+var userRouter = require('./router/user');
+userRouter(app);
 
 // 编译stylus
 var stylus = require('./source/stylus_run');
