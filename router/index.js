@@ -5,4 +5,7 @@ var controller = require('../controller/index');
 module.exports = function(app){
     //index
     app.get('/',controller.index);
+    app.get('/',controller.index);
+    app.get('/',controller.index);
+    app.get('/',controller.index);
 };

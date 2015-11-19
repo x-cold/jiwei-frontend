@@ -7,11 +7,12 @@
 
     <!-- main block -->
     <section id="wrapper">
-        {{{block ("body")}}}
+        {{{block ("wrap")}}}
     </section>
 
     <!-- aside-box -->
     <section class="aside-box">
+    {{{block ("aside")}}}
     </section>
 
     <!-- footer -->
