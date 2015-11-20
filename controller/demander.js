@@ -11,21 +11,59 @@ module.exports = {
         yield this.render('user_reg', {'title': '用户注册'});
     },
     login: function*(){
+        /*
+         * 检查是否已登录
+         */
+        console.log(this.session);
+        if(checkIsLogin(this)){
+            console.log('已登陆');
+            return true;
+        };
         yield this.render('user_login', {'title': '用户登陆'});
     },
     checkRegister: function*(){
-        var account = this.request.query.username || '12345';
-        var password = this.request.query.password ||  '123455';
+        var account = this.request.body.username;
+        var password = this.request.body.password;
+        var _this = this;
         UserModel.register(account,password,function(err){
             if(!err){
-                res.end(JSON.stringify(reqFun.res_success_data("success")));
+                _this.session.user = account;
+                _this.redirect('/user/center');
             }
             else{
-                res.end(JSON.stringify(reqFun.res_err_data("error")));
+                _this.redirect('/user/register');
             }
         });
     },
     checkLogin: function*(){
+        var account = this.request.body.username;
+        var password = this.request.body.password;
+        var data = {
+            status:"fail",
+            data:""
+        };
+        var _this = this;
+        UserModel.login({account:account,password:password},function(err,doc){
+            if(err!=null){
 
+            }
+            else{
+                if(doc!=null){
+                    _this.session.user = doc._id;
+                }
+                else{
+
+                }
+
+            }
+        });
     }
+}
+
+var checkIsLogin = function (_this) {
+    if (_this.session.user != null || _this.session.user != undefined)
+    {
+        return true;
+    }
+    return false;
 }

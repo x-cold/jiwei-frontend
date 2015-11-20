@@ -43,6 +43,7 @@ app.use(session(app));
 //post body 解析
 var bodyParser = require('koa-bodyparser');
 app.use(bodyParser());
+
 //数据校验
 var validator = require('koa-validator');
 app.use(validator());
@@ -58,12 +59,16 @@ app.use(staticCache(staticDir+'/js'));
 app.use(staticCache(staticDir+'/css'));
 
 //数据库
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+    session = require('koa-session');
 mongoose.connect(config.db.dbPath);
+app.use(session(app));
 
 //路由
 var router = require('koa-router');
 app.use(router(app));
+var redirects = require('koa-redirects');
+redirects(app);
 
 //应用路由
 var appRouter = require('./router/index');
