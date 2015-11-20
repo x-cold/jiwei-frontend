@@ -14,9 +14,8 @@ module.exports = {
         /*
          * 检查是否已登录
          */
-        console.log(this.session);
         if(checkIsLogin(this)){
-            console.log('已登陆');
+            this.redirect('/user/center');
             return true;
         };
         yield this.render('user_login', {'title': '用户登陆'});
@@ -38,17 +37,14 @@ module.exports = {
     checkLogin: function*(){
         var account = this.request.body.username;
         var password = this.request.body.password;
-        var data = {
-            status:"fail",
-            data:""
-        };
         var _this = this;
         UserModel.login({account:account,password:password},function(err,doc){
-            if(err!=null){
+            if(err != null){
 
             }
             else{
-                if(doc!=null){
+                if(doc != null){
+                    _this.response.status = 201;
                     _this.session.user = doc._id;
                 }
                 else{
@@ -57,6 +53,9 @@ module.exports = {
 
             }
         });
+    },
+    usercenter: function* (){
+
     }
 }
 

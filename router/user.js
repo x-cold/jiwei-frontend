@@ -23,7 +23,7 @@ module.exports = function(app){
     /**
      * 用户中心
      */
-    app.get('/user/:id',controller_usr.index);
+    app.get('/user/center',controller_usr.usercenter);
     /**
      * 任务列表
      */
