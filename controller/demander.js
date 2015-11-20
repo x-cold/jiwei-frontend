@@ -16,7 +16,6 @@ module.exports = {
          */
         if(checkIsLogin(this)){
             this.redirect('/user/center');
-            return true;
         };
         yield this.render('user_login', {'title': '用户登陆'});
     },
@@ -30,7 +29,7 @@ module.exports = {
                 _this.redirect('/user/center');
             }
             else{
-                _this.redirect('/user/register');
+                _this.redirect('/user/login');
             }
         });
     },
@@ -40,22 +39,23 @@ module.exports = {
         var _this = this;
         UserModel.login({account:account,password:password},function(err,doc){
             if(err != null){
-
+                console.log(err);
+                _this.redirect('/user/login');
             }
             else{
                 if(doc != null){
-                    _this.response.status = 201;
                     _this.session.user = doc._id;
+                    _this.redirect('/user/center');
                 }
                 else{
-
+                    console.log('no found');
+                    _this.redirect('/user/login');
                 }
-
             }
         });
     },
     usercenter: function* (){
-
+        this.render('cneter', {title: '个人中心'});
     }
 }
 

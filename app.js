@@ -4,6 +4,7 @@
 
 var debug = require('debug')('koa-demo');
 var koa = require('koa');
+
 //配置文件
 var config = require('./config/config');
 
