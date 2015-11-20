@@ -25,6 +25,10 @@ module.exports = function(app){
      */
     app.get('/user/center',controller_usr.usercenter);
     /**
+     * 修改信息
+     */
+    app.post("/user/modify", controller_usr.modify);
+    /**
      * 任务列表
      */
     app.get('/user/tasklist',controller.tasklist);

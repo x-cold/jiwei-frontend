@@ -1,5 +1,5 @@
 /**
- * Created by lxstart on 2015-11-18.
+ * Created by lxstart on 2015-11-21.
  */
 var UserModel = require('../Dao/user')();
 var reqFun = require('../util/response');
