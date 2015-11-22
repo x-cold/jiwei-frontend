@@ -46,6 +46,7 @@ module.exports = {
                 if(doc != null){
                     _this.session.user = doc._id;
                     _this.redirect('/user/center');
+                    _this.res.end(JSON.stringify(reqFun.res_success_data(doc)));
                 }
                 else{
                     console.log('no found');
@@ -61,7 +62,7 @@ module.exports = {
         console.log(req.session);
         var id = req.session.user;
         if(!id){
-            res.end(JSON.stringify(reqFun.res_err_data("no login")));
+           this. res.end(JSON.stringify(reqFun.res_err_data("no login")));
             return;
         }
         var data = req.body;
@@ -69,10 +70,10 @@ module.exports = {
         UserModel.User.findByIdAndUpdate(id,data, function (err,doc) {
             if(err==null&&doc){
                 delete doc.password;
-                res.end(JSON.stringify(reqFun.res_success_data(doc)));
+                this.res.end(JSON.stringify(reqFun.res_success_data(doc)));
             }
             else{
-                res.end(JSON.stringify(reqFun.res_err_data("fail")));
+                this.res.end(JSON.stringify(reqFun.res_err_data("fail")));
             }
         });
     }
