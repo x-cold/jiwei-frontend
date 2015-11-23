@@ -9,6 +9,6 @@ module.exports = {
     yield this.render('task-list', {title: '计维冷哥哥的任务列表', username: 'xcold'});
     },
     taskbody: function* (){
-        yield this.render('task-body', {title: '任务2333', username: 'xcold'});
+        yield this.render('task-body', {title: '任务2333的详细情况', taskname: '任务2333'});
     }
 }
