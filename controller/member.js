@@ -1,7 +1,7 @@
 /**
  * Created by lxstart on 2015-11-18.
  */
-var UserModel = require('../Dao/member')();
+//var UserModel = require('../Dao/member')();
 var reqFun = require('../util/response');
 module.exports = {
     index: function*(){

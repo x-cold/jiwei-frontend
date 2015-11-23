@@ -5,10 +5,10 @@ module.exports = {
     index: function*(){
         yield this.render('index',{'title':'计算机维护队官方网站'});
     },
-    tasklist: function*(){
-        yield this.render('task-list',{'title':'近期任务'});
+    tasklist: function* (){
+    yield this.render('task-list', {title: '计维冷哥哥的任务列表', username: 'xcold'});
     },
-    taskbody: function*(){
-        yield this.render('task-body',{'title':'计算机维护队官方网站'});
+    taskbody: function* (){
+        yield this.render('task-body', {title: '任务2333', username: 'xcold'});
     }
 }

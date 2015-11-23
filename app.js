@@ -76,6 +76,8 @@ var appRouter = require('./router/index');
 appRouter(app);
 var userRouter = require('./router/user');
 userRouter(app);
+var userRouter = require('./router/member');
+userRouter(app);
 
 // 编译stylus
 var stylus = require('./source/stylus_run');

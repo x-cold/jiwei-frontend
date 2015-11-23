@@ -12,6 +12,8 @@
     padding 0 12%
   @media tablet
     padding 0 8%
+  @media full
+    padding-right 12px
   width 100%
   height auto
   opacity 0.8
@@ -25,7 +27,7 @@
   box-sizing(border-box)
   width 48px
   height 48px
-  background url(../img/logo.png) no-repeat auto auto
+  background: no-repeat url("../img/logo.png") center center
   background-size contain  
 
 .nav-list
@@ -38,17 +40,20 @@
   a
     position relative
     display block
-    margin 8px 4px
+    margin 8px 2px
     padding 3px 12px
     color color-theme
-    border-radius(6px)
     -webkit-transform translateZ(0)
     transform translateZ(0)
     transition: color 0.4s
-    border 1px solid color-theme
     box-shadow(0 0 1px rgba(0, 0, 0, 0))
+    @media full
+      margin 8px 0
+      padding 3px 6px
+
     &:hover
       color #fff
+      border-radius(6px)
     &:before
       content ""
       position absolute
@@ -78,6 +83,6 @@
       margin 0 1px;
  
 .active-link
-  border none
-  background color-theme !important
-  color #fff !important
+  border-radius(6px)
+  opacity .9
+  border 1px solid color-theme

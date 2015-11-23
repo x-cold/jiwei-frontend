@@ -27,7 +27,8 @@ clearfix()
   -webkit-margin-after 0
 
 body
-  background color-background
+  background-color color-background
+  background url(/img/bg.jpg) no-repeat center center fixed
   font-family font-default
   font-size font-size
   color color-font
@@ -175,4 +176,10 @@ input[type="search"]::-webkit-search-decoration
 
 .text-right
   text-align right
-  
+
+#wrapper
+  padding 48px 20px
+  min-height 480px
+  @media full
+    padding 8px 0
+    min-height 0

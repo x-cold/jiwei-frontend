@@ -2,3 +2,27 @@
   box-sizing(border-box)
   width 200px
   height 600px
+
+.page-box
+  box-sizing(border-box)
+  margin 8px auto
+  max-width 960px
+  @media full
+    width 92%
+  .page-title
+    color color-theme
+
+.task-list
+  li
+    margin 8px auto
+    padding 20px 32px
+    list-style none
+    color color-theme
+    border 1px solid color-theme
+    border-radius(12px)
+    &:hover
+      box-shadow(0 0 1px rgba(0, 0, 0, 0))
+    a,p,h2
+      color color-theme
+    h2
+      font-size 18px

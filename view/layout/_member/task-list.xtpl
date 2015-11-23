@@ -1,31 +1,36 @@
 <!-- 任务列表 -->
-<ul class="task-list">
-    <li>
-        <a href="#" class="task-list-card">
-            <h2 class="task-title">报修概要：电脑无法上网</h2>
-            <p class="task-room">五山24-201</p>
-            <p class="task-date">2015-12-15 14:00</p>
-        </a>
-    </li>
-    <li>
-        <a href="#" class="task-list-card">
-            <h2 class="task-title">报修概要：电脑无法上网</h2>
-            <p class="task-room">五山24-201</p>
-            <p class="task-date">2015-12-15 14:00</p>
-        </a>
-    </li>
-    <li>
-        <a href="#" class="task-list-card">
-            <h2 class="task-title">报修概要：电脑无法上网</h2>
-            <p class="task-room">五山24-201</p>
-            <p class="task-date">2015-12-15 14:00</p>
-        </a>
-    </li>
-    <li>
-        <a href="#" class="task-list-card">
-            <h2 class="task-title">报修概要：电脑无法上网</h2>
-            <p class="task-room">五山24-201</p>
-            <p class="task-date">2015-12-15 14:00</p>
-        </a>
-    </li>
-</ul>
+<div class="page-box">
+    <div class="page-title">
+        <p><i class="icon icon-calendar"></i> {{username}} 的任务列表</p>
+    </div>
+    <ul class="task-list">
+        <li>
+            <a href="#" class="task-list-card">
+                <h2 class="task-title">报修概要：电脑无法上网</h2>
+                <p class="task-room">五山24-201</p>
+                <p class="task-date">2015-12-15 14:00</p>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="task-list-card">
+                <h2 class="task-title">报修概要：电脑无法上网</h2>
+                <p class="task-room">五山24-201</p>
+                <p class="task-date">2015-12-15 14:00</p>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="task-list-card">
+                <h2 class="task-title">报修概要：电脑无法上网</h2>
+                <p class="task-room">五山24-201</p>
+                <p class="task-date">2015-12-15 14:00</p>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="task-list-card">
+                <h2 class="task-title">报修概要：电脑无法上网</h2>
+                <p class="task-room">五山24-201</p>
+                <p class="task-date">2015-12-15 14:00</p>
+            </a>
+        </li>
+    </ul>
+</div>
