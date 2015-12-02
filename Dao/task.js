@@ -5,20 +5,20 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var User = require("./user");
 var TaskSchema = new Schema({
-    title: { type: String,required: true},
-    photoUrl: { type: String},
-    price: { type: Number ,required: true},
-    city: { type: String},
-    region:{type: String},
-    desc:{type:String},
-    type:{type:String,required: true},
-    wantTodo:{type:String},
-    wantGood:{type:String},
-    author:{type:String},
-    pv:{type:Number,Default:0},
-    createTime:{type:Date,Default: Date.now},
-    comment:{type:Array},
-    user_ids: [{type: Schema.Types.ObjectId, ref: 'User'}]
+        title: { type: String,required: true},
+        photoUrl: { type: String},
+        price: { type: Number ,required: true},
+        city: { type: String},
+        region:{type: String},
+        desc:{type:String},
+        type:{type:String,required: true},
+        wantTodo:{type:String},
+        wantGood:{type:String},
+        author:{type:String},
+        pv:{type:Number,Default:0},
+        createTime:{type:Date,Default: Date.now},
+        comment:{type:Array},
+        user_ids: [{type: Schema.Types.ObjectId, ref: 'User'}]
 });
 TaskSchema.index({city:1,type:1,createTime:-1});
 TaskSchema.index({'user_ids':1});
